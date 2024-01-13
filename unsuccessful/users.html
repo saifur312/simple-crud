@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="./signup.js"></script>
+    <script>
+      console.log(users.length);
+      /* Access the table body */
+      const tableBody = document.getElementById('tableBody');
+
+      users.map((user) => {
+        /* Create a new row for each user: */
+        const row = document.createElement('tr');
+        /* Create a <td> for each property of the user object: */
+        Object.values(user).forEach((value) => {
+          const cell = document.createElement('td');
+          cell.textContent = value;
+          row.appendChild(cell);
+        });
+        /* Append the row to the table body: */
+        tableBody.appendChild(row);
+      });
+    </script>
+  </body>
+</html>
